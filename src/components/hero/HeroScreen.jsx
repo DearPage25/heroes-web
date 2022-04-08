@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { useParams, Navigate, useNavigate } from 'react-router-dom'
+import { heroImages } from '../../helpers/getImages';
 import { getHeroById } from '../../selectors/getHeroById';
 
 export const HeroScreen = () => {
@@ -13,7 +14,7 @@ export const HeroScreen = () => {
   }
   
   const { id, superhero, publisher, alter_ego, first_appearance, characters } = hero
-  const imgPath = `/assets/${id}.jpg`;
+  // const imgPath = `/assets/${id}.jpg`;
 
   const handleBackClick = () => {
     navigate(-1);
@@ -24,7 +25,7 @@ export const HeroScreen = () => {
     <div className="row mt-5">
       <div className="col-4">
         <img
-          src={ imgPath }
+          src={ heroImages(`./${id}.jpg`) }
           alt={ superhero }
           className="img-thumbnail animate__animated animate__fadeInLeft" />
       </div>
